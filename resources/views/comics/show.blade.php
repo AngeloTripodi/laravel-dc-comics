@@ -41,7 +41,7 @@
                 <h5>Series: {{ $comic->series }}</h5>
                 <h5>Comic type:{{ $comic->type }}</h5>
                 <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}">
-                <h5>Price: {{ $comic->price }}</h5>
+                <h5>Price: {{ $comic->price }}$</h5>
                 <h6>Sale date: {{ $comic->sale_date }}</h6>
                 <p>{{ $comic->description }}</p>
             </div>
