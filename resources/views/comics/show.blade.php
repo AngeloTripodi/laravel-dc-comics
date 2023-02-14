@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Comics</title>
+    <title>Comic</title>
     <!-- Fonts -->
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class=" text-info my-3">COMICS:</h1>
+                <h1 class=" text-info my-3">COMIC:</h1>
             </div>
         </div>
     </div>
@@ -36,30 +36,18 @@
                     <p>{{ $comic->description }}</p>
                 </div> --}}
 
-            <table class="table">
-                <thead class="table-dark">
-                    <th scope="col">id</th>
-                    <th scope="col">title</th>
-                    <th scope="col">series</th>
-                    <th scope="col">price</th>
-                    <th scope="col">type</th>
-                    <th scope="col">sale date</th>
-                </thead>
-                <tbody>
+            <div class="col-3">
+                <h1>{{ $comics->title }}</h1>
+                <h5>Series: {{ $comics->series }}</h5>
+                <h5>Comic type:{{ $comics->type }}</h5>
+                <img src="{{ $comics->thumb }}" alt="{{ $comics->title }}">
+                <h5>Price: {{ $comics->price }}</h5>
+                <h6>Sale date: {{ $comics->sale_date }}</h6>
+                <p>{{ $comics->description }}</p>
+            </div>
 
-                    @foreach ($comics as $comic)
-                        <tr>
-                            <th scope="row">{{ $comic->id }}</th>
-                            <td>{{ $comic->title }}</td>
-                            <td>{{ $comic->series }}</td>
-                            <td>{{ $comic->price }}</td>
-                            <td>{{ $comic->type }}</td>
-                            <td>{{ $comic->sale_date }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
 
-            </table>
+
 
 
         </div>
