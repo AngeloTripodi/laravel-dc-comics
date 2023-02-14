@@ -16,7 +16,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 text-center">
                 <h1 class=" text-info my-3">COMIC:</h1>
             </div>
         </div>
@@ -36,14 +36,14 @@
                     <p>{{ $comic->description }}</p>
                 </div> --}}
 
-            <div class="col-3">
-                <h1>{{ $comics->title }}</h1>
-                <h5>Series: {{ $comics->series }}</h5>
-                <h5>Comic type:{{ $comics->type }}</h5>
-                <img src="{{ $comics->thumb }}" alt="{{ $comics->title }}">
-                <h5>Price: {{ $comics->price }}</h5>
-                <h6>Sale date: {{ $comics->sale_date }}</h6>
-                <p>{{ $comics->description }}</p>
+            <div class="col-12 text-center m-auto">
+                <h1>{{ $comic->title }}</h1>
+                <h5>Series: {{ $comic->series }}</h5>
+                <h5>Comic type:{{ $comic->type }}</h5>
+                <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}">
+                <h5>Price: {{ $comic->price }}</h5>
+                <h6>Sale date: {{ $comic->sale_date }}</h6>
+                <p>{{ $comic->description }}</p>
             </div>
 
 
