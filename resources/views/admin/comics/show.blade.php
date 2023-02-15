@@ -47,6 +47,12 @@
                 <a class="btn btn-dark btn-lg btn" href="{{ route('admin.comics.index') }}">Visualizza i
                     prodotti</a>
                 <a class="btn btn-lg btn-warning" href="{{ route('admin.comics.edit', $comic->id) }}">EDIT</a>
+                <form class=" d-inline-block" action="{{ route('admin.comics.destroy', $comic->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+
+                    <button class="btn btn-lg btn-danger">DELETE</button>
+                </form>
             </div>
 
 

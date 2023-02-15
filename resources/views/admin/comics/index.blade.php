@@ -47,6 +47,7 @@
                     <th scope="col">sale date</th>
                     <th scope="col">Action 1</th>
                     <th scope="col">Action 2</th>
+                    <th scope="col">Action 3</th>
                 </thead>
                 <tbody>
 
@@ -65,6 +66,14 @@
                             <td>
                                 <a class="btn btn-sm btn-dark"
                                     href="{{ route('admin.comics.edit', $comic->id) }}">EDIT</a>
+                            </td>
+                            <td>
+                                <form action="{{ route('admin.comics.destroy', $comic->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button class="btn btn-sm btn-danger">DELETE</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
