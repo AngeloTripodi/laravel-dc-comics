@@ -44,6 +44,9 @@
                 <h5>Price: {{ $comic->price }}$</h5>
                 <h6>Sale date: {{ $comic->sale_date }}</h6>
                 <p>{{ $comic->description }}</p>
+                <a class="btn btn-dark btn-lg btn" href="{{ route('admin.comics.index') }}">Visualizza i
+                    prodotti</a>
+                <a class="btn btn-lg btn-warning" href="{{ route('admin.comics.edit', $comic->id) }}">EDIT</a>
             </div>
 
 
@@ -52,6 +55,7 @@
 
         </div>
     </div>
+
 
 
 </body>
