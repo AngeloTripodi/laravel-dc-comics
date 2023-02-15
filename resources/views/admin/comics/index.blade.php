@@ -25,6 +25,7 @@
 
     <div class="container">
         <div class="row">
+            <a class="btn btn-sm btn-dark my-3" href="{{ route('admin.comics.create') }}">CREATE NEW PRODUCT</a>
             {{-- @foreach ($comics as $comic)
                 <div class="col-3">
                     <h1>{{ $comic->title }}</h1>
@@ -57,7 +58,8 @@
                             <td>{{ $comic->type }}</td>
                             <td>{{ $comic->sale_date }}</td>
                             <td>
-                                <a class="btn btn-sm btn-dark" href="{{ route('comics.show', $comic->id) }}">SHOW</a>
+                                <a class="btn btn-sm btn-dark"
+                                    href="{{ route('admin.comics.show', $comic->id) }}">SHOW</a>
                             </td>
                         </tr>
                     @endforeach

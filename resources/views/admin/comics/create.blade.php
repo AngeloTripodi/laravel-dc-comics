@@ -26,7 +26,7 @@
     <div class="container">
         <div class="row">
 
-            <form action="{{ route('comics.store') }}" method="POST">
+            <form action="{{ route('admin.comics.store') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="title" class="form-label">Title:</label>
