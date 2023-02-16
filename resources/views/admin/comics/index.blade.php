@@ -68,7 +68,8 @@
                                     href="{{ route('admin.comics.edit', $comic->id) }}">EDIT</a>
                             </td>
                             <td>
-                                <form action="{{ route('admin.comics.destroy', $comic->id) }}" method="POST">
+                                <form class="popupDel" action="{{ route('admin.comics.destroy', $comic->id) }}"
+                                    method="POST" data-element-name={{ $comic->title }}>
                                     @csrf
                                     @method('DELETE')
 
@@ -85,6 +86,7 @@
         </div>
     </div>
 
+    @vite('resources/js/popupDeleter.js')
 
 </body>
 
