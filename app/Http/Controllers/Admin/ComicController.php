@@ -37,8 +37,7 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $form_data = $request->all();
-        $request->validate(
+        $form_data = $request->validate(
             [
                 'title' => 'required|max:120|min:2',
                 'thumb' => 'max:255|min:2|url',
