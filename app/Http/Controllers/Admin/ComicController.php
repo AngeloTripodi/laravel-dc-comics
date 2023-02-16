@@ -38,6 +38,36 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         $form_data = $request->all();
+        $request->validate(
+            [
+                'title' => 'required|max:120|min:2',
+                'thumb' => 'max:255|min:2|url',
+                'price' => 'max:10|min:3|required',
+                'series' => 'max:80|min:2',
+                'sale_date' => 'date_format:Y-m-d',
+                'type' => 'max:60|min:2'
+            ],
+            [
+                'title.required' => 'Il campo Title è obbligatorio.',
+                'title.min' => 'Inserire almeno 2 caratteri nel campo Title',
+                'title.max' => 'Inserire massimo 255 caratteri nel campo Title',
+                'thumb.required' => 'Il campo Thumb è obbligatorio.',
+                'thumb.url' => 'Non hai inserito un link valido nel campo Thumb, riprovare',
+                'thumb.min' => 'Inserire almeno 2 caratteri nel campo Thumb',
+                'thumb.max' => 'Inserire massimo 255 caratteri nel campo Thumb',
+                'price.min' => 'Inserire almeno 3 caratteri nel campo Price',
+                'price.max' => 'Inserire massimo 10 caratteri nel campo Price',
+                'price.required' => 'Il campo Price è obbligatorio.',
+                'series.min' => 'Inserire almeno 2 caratteri nel campo Series',
+                'series.max' => 'Inserire massimo 80 caratteri nel campo Series',
+                'series.required' => 'Il campo Series è obbligatorio.',
+                'sale_date.date_format' => 'Non hai inserito una data valida nel campo Sale Date, si prega di riprovare.',
+                'type.min' => 'Inserire almeno 2 caratteri nel campo Type',
+                'type.max' => 'Inserire massimo 60 caratteri nel campo Type',
+
+            ]
+        );
+
         $newComic = new Comic();
         $newComic->fill($form_data);
         $newComic->save();
