@@ -25,6 +25,13 @@
 
     <div class="container">
         <div class="row">
+
+            @if (session('message'))
+                <div class="alert alert-{{ session('alert-type') }}">
+                    {{ session('message') }}
+                </div>
+            @endif
+
             <a class="btn btn-sm btn-dark my-3" href="{{ route('admin.comics.create') }}">CREATE NEW PRODUCT</a>
             {{-- @foreach ($comics as $comic)
                 <div class="col-3">

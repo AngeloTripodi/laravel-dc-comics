@@ -40,6 +40,7 @@ class ComicController extends Controller
         $form_data = $request->validate(
             [
                 'title' => 'required|max:120|min:2',
+                'description' => 'required',
                 'thumb' => 'max:255|min:2|url',
                 'price' => 'max:10|min:3|required',
                 'series' => 'max:80|min:2',
@@ -50,6 +51,7 @@ class ComicController extends Controller
                 'title.required' => 'Il campo Title è obbligatorio.',
                 'title.min' => 'Inserire almeno 2 caratteri nel campo Title',
                 'title.max' => 'Inserire massimo 255 caratteri nel campo Title',
+                'description.required' => 'Il campo Description è obbligatorio.',
                 'thumb.required' => 'Il campo Thumb è obbligatorio.',
                 'thumb.url' => 'Non hai inserito un link valido nel campo Thumb, riprovare',
                 'thumb.min' => 'Inserire almeno 2 caratteri nel campo Thumb',
@@ -70,9 +72,8 @@ class ComicController extends Controller
         $newComic = new Comic();
         $newComic->fill($form_data);
         $newComic->save();
-        return redirect()->route('admin.comics.show', $newComic->id);
+        return redirect()->route('admin.comics.show', $newComic->id)->with('message', "$newComic->title è stato creato")->with('alert-type', 'success');
     }
-
     /**
      * Display the specified resource.
      *
@@ -121,6 +122,6 @@ class ComicController extends Controller
     public function destroy(Comic $comic)
     {
         $comic->delete();
-        return redirect()->route('admin.comics.index');
+        return redirect()->route('admin.comics.index')->with('message', "$comic->title è stato eliminato")->with('alert-type', 'danger');
     }
 }

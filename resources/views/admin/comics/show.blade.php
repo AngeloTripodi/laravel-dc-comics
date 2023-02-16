@@ -25,6 +25,11 @@
 
     <div class="container">
         <div class="row">
+            @if (session('message'))
+                <div class="alert alert-{{ session('alert-type') }}">
+                    {{ session('message') }}
+                </div>
+            @endif
             {{-- @foreach ($comics as $comic)
                 <div class="col-3">
                     <h1>{{ $comic->title }}</h1>
